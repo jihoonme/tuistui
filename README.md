@@ -1,9 +1,9 @@
-![header](https://github.com/jihoonahn/tuistui/assets/68891494/c1a2a5f4-0b11-40af-8590-3fd606d98c6f)
+![header](https://github.com/jihoonme/tuistui/assets/68891494/c1a2a5f4-0b11-40af-8590-3fd606d98c6f)
 
 <p>
   <img src="https://img.shields.io/badge/Swift-5.9-f05318.svg" />
   <img src="https://img.shields.io/badge/tuist-plugin-blue.svg" />
-  <img alt="GitHub" src="https://img.shields.io/github/license/Jihoonahn/tuistui">
+  <img alt="GitHub" src="https://img.shields.io/github/license/jihoonme/tuistui">
 </p>
 
 TuistUI is Style Plugin for cooler use of Tuist.
@@ -19,7 +19,7 @@ import ProjectDescription
 
 let config = Config(
     plugins: [
-        .git(url: "https://github.com/jihoonahn/tuistui", tag: "vTAG")
+        .git(url: "https://github.com/jihoonme/tuistui", tag: "vTAG")
     ]
 )
 ```
@@ -28,7 +28,7 @@ let config = Config(
 
 The documentation for releases and `main` are available here:
 
-- [`main`](https://jihoonahn.github.io/tuistui/main/documentation/tuistui/)
+- [`main`](https://jihoonme.github.io/tuistui/main/documentation/tuistui/)
 
 ## Using
 
@@ -237,4 +237,4 @@ To modify the contents of a project and workspace, you only need to modify the P
 
 ## License
 
-**tuistui** is under MIT license. See the [LICENSE](https://github.com/Jihoonahn/tuistui/blob/main/LICENSE) file for more info.
+**tuistui** is under MIT license. See the [LICENSE](https://github.com/jihoonme/tuistui/blob/main/LICENSE) file for more info.
