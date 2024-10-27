@@ -7,11 +7,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
-concurrency:
-  group: docc-${{ github.head_ref }}
-  cancel-in-progress: true
 
 jobs:
   docc:
