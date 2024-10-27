@@ -1,9 +1,9 @@
-// swift-tools-version: 5.10
-import PackageDescription
+// swift-tools-version: 6.0
+@preconcurrency import PackageDescription
 
 let package = Package(
     name: "tuistui",
-    platforms: [.macOS(.v12)],
+    platforms: [.macOS(.v13)],
     products: [
         .executable(
             name: "tuist-ui",
@@ -11,8 +11,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
-        .package(url: "https://github.com/tuist/tuist", from: "4.15.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.4.3"),
+        .package(url: "https://github.com/tuist/tuist", from: "4.31.0"),
     ],
     targets: [
         .executableTarget(name: "TuistUICLI"),
