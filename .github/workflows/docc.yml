@@ -15,4 +15,3 @@ jobs:
     with:
       project_target: "TuistUI"
       hosting_path: "tuistui"
-      token: ${{ secrets.GH_TOKEN }}
