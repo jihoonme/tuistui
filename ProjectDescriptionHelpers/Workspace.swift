@@ -25,7 +25,6 @@ import ProjectDescription
 /// let workspace = TuistApp().module()
 /// ```
 
-
 public struct Workspace<Content>: Module where Content: PathConvertable {
     /// Allows workspace modifier to be made to a given Workspace Type.
     public let workspaceModifier = WorkspaceModifier()
