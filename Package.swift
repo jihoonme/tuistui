@@ -1,5 +1,5 @@
 // swift-tools-version: 5.10
-@preconcurrency import PackageDescription
+import PackageDescription
 
 let package = Package(
     name: "tuistui",
