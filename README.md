@@ -81,15 +81,15 @@ additional operations
 let workspace = TuistApp().module()
 ```
 
-### Environment management
+### Constant management
 
-EnvironmentObject can manage redundant parts of a project or workspace.
+`ModuleObject` can manage redundant parts of a project or workspace.
 
 ```swift
-final class AppEnvironment: EnvironmentObject {
-    let organizationName: String = ""
-    let destinations: Destinations = .iOS
-    let deploymentTargets: DeploymentTargets = .iOS("15.0")
+struct AppEnvironment: ModuleObject {
+    static let organizationName: String = ""
+    static let destinations: Destinations = .iOS
+    static let deploymentTargets: DeploymentTargets = .iOS("15.0")
 }
 ```
 
@@ -97,7 +97,7 @@ How to use within a module.
 
 ```swift
 struct BaseProject: Module {
-    @ModuleEnvironment var env = AppEnvironment()
+    @Constant var env = AppEnvironment()
 
     var body: Module {
         Project {
