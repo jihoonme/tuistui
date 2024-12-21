@@ -139,7 +139,7 @@ struct AppConfiguration: XCConfig {
 }
 ```
 
-And use .debug(into:name:) method, .release(into:name:) method extended to ConfigurationName and make it easier to use
+And use .debug(into:name:) method, .release(into:name:) method.
 
 ```swift
 var body: some XCConfigOf<Self> {
