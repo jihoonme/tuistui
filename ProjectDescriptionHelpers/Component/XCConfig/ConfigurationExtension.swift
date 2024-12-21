@@ -5,12 +5,13 @@ extension ProjectDescription.Configuration {
     /// Returns a debug configuration.
     ///
     /// - Parameters:
-    ///   - type: The type of the configuration to use
+    ///   - target: The target of the configuration to use
+    ///   - name: The name of the configuration to use
     ///   - settings: The base build settings to apply
     /// - Returns: A debug `CustomConfiguration`
     public static func debug(
         into target: some XCConfigTargetType,
-        deploy deployTarget: some XCConfigDeployTargetType,
+        name configurationName: ConfigurationName,
         settings: SettingsDictionary = [:]
     ) -> ProjectDescription.Configuration {
         let xcconfigPath = Path.path("\(target.path.pathString)/\(deployTarget.rawValue).xcconfig")
@@ -24,17 +25,18 @@ extension ProjectDescription.Configuration {
     /// Returns a release configuration.
     ///
     /// - Parameters:
-    ///   - type: The type of the configuration to use
+    ///   - target: The target of the configuration to use
+    ///   - name: The name of the configuration to use
     ///   - settings: The base build settings to apply
-    /// - Returns: A relase `CustomConfiguration`
+    /// - Returns: A debug `CustomConfiguration`
     public static func release(
         into target: some XCConfigTargetType,
-        deploy deployTarget: some XCConfigDeployTargetType,
+        name configurationName: ConfigurationName,
         settings: SettingsDictionary = [:]
     ) -> ProjectDescription.Configuration {
         let xcconfigPath = Path.path("\(target.path.pathString)/\(deployTarget.rawValue).xcconfig")
         return .release(
-            name: .configuration(""),
+            name: configurationName,
             settings: settings,
             xcconfig: xcconfigPath
         )
