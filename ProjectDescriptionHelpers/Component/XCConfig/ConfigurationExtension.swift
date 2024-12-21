@@ -14,9 +14,9 @@ extension ProjectDescription.Configuration {
         name configurationName: ConfigurationName,
         settings: SettingsDictionary = [:]
     ) -> ProjectDescription.Configuration {
-        let xcconfigPath = Path.path("\(target.path.pathString)/\(deployTarget.rawValue).xcconfig")
+        let xcconfigPath = Path.path("\(target.path.pathString)/\(configurationName.rawValue).xcconfig")
         return .debug(
-            name: deployTarget.configurationName,
+            name: configurationName,
             settings: settings,
             xcconfig: xcconfigPath
         )
@@ -34,7 +34,7 @@ extension ProjectDescription.Configuration {
         name configurationName: ConfigurationName,
         settings: SettingsDictionary = [:]
     ) -> ProjectDescription.Configuration {
-        let xcconfigPath = Path.path("\(target.path.pathString)/\(deployTarget.rawValue).xcconfig")
+        let xcconfigPath = Path.path("\(target.path.pathString)/\(configurationName.rawValue).xcconfig")
         return .release(
             name: configurationName,
             settings: settings,
