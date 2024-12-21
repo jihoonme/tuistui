@@ -139,17 +139,7 @@ struct AppConfiguration: XCConfig {
 }
 ```
 
-Set the Deploy Target part of XCConfig.
-
-```swift
-enum XCConfigDeployTarget: String, XCConfigDeployTargetType {
-    case dev = "DEV"
-    case stage = "STAGE"
-    case prod = "PROD"
-} 
-```
-
-And use .debug(into:deploy:) method, .release(into:deploy:) method extended to ConfigurationName and make it easier to use
+And use .debug(into:name:) method, .release(into:name:) method extended to ConfigurationName and make it easier to use
 
 ```swift
 var body: some XCConfigOf<Self> {
@@ -157,8 +147,8 @@ var body: some XCConfigOf<Self> {
         switch $0 {
         case .A:
             return [
-                .debug(into: $0, deploy: XCConfigDeployTarget.dev)
-                .release(into: $0, deploy: XCConfigDeployTarget.prod)
+                .debug(into: $0, name: .dev)
+                .release(into: $0, name: .prod)
             ]
         }
     })
