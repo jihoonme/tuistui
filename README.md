@@ -12,6 +12,24 @@ TuistUI is Style Plugin for cooler use of Tuist.
 
 In order to tell Tuist you'd like to use TuistUI plugin in your project follow the instructions that are described in [Tuist documentation.](https://docs.tuist.io/plugins/using-plugins)
 
+### `4.x.x`
+
+Add the plugin to `Tuist.swift`.
+
+```swift
+import ProjectDescription
+
+let tuist = Tuist(
+    project: .tuist(
+        plugins: [
+            .git(url: "https://github.com/jihoonme/tuistui", tag: "vTAG")
+        ]
+    )
+)
+```
+
+### `3.x.x`
+
 Add the plugin to `Config.swift`.
 
 ```swift
