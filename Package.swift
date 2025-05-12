@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.4.3"),
-        .package(url: "https://github.com/tuist/tuist", from: "4.38.1"),
+        .package(url: "https://github.com/tuist/tuist", from: "4.49.1"),
     ],
     targets: [
         .executableTarget(name: "TuistUICLI"),
