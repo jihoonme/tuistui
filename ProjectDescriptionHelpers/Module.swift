@@ -19,7 +19,7 @@ public protocol Module {
     var typeName: String { get }
 
     /// Create `Project` or `Workspace`, including struct name
-    func module(_ name: String) -> Any
+    func module(_ name: String) -> AnyModule
 
     /// The content and behavior of a module.
     @ModuleBuilder
@@ -35,7 +35,7 @@ extension Never: Module {
 extension Module where Body: Module {
     @discardableResult
     @inlinable
-    public func module(_ name: String = "") -> Any {
+    public func module(_ name: String = "") -> AnyModule {
         return self.body.module(typeName)
     }
 }
