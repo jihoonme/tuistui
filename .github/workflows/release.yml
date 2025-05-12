@@ -7,8 +7,10 @@ on:
 jobs:
   macos:
     name: Release Tuist Plugin Zip
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
+      - name: Select Xcode 16.2
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Tuist
