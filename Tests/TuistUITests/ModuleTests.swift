@@ -3,26 +3,53 @@ import ProjectDescription
 @testable import TuistUI
 
 final class ModuleTests: XCTestCase {
-    func testProjectGenerate() {
-        struct TestProject: Module {
+    struct MyAppModule: Module {
             var body: some Module {
-                Project {}
+                Project {
+                    Target(name: "MyApp", destinations: .iOS, product: .app, bundleId: "io.jihoon.myapp")
+                }
+                .organizationName("jihoonme")
             }
         }
-        let testProject = TestProject()
-        let projectType = type(of: testProject.module())
-        
-        XCTAssertTrue(projectType == ProjectDescription.Project.self, "The return type is not ProjectDescription.Project")
-    }
-    func testWorkspaceGenerate() {
-        struct TestWorkspace: Module {
-            var body: some Module {
-                Workspace {}
+
+        func testTypeName() {
+            let module = MyAppModule()
+            XCTAssertEqual(module.typeName, "MyAppModule")
+        }
+
+        func testProjectModuleGeneration() {
+            let module = MyAppModule()
+            let anyModule = module.module()
+            
+            switch anyModule.module {
+            case let .project(project):
+                XCTAssertEqual(anyModule.typeName, "MyAppModule")
+                XCTAssertEqual(project.organizationName, "jihoonme")
+                XCTAssertEqual(project.targets.first?.name, "MyApp") // Target 이름 검증
+            default:
+                XCTFail("Expected a Project module")
             }
         }
-        let testWorkspace = TestWorkspace()
-        let workspaceType = type(of: testWorkspace.module())
         
-        XCTAssertTrue(workspaceType == ProjectDescription.Workspace.self, "The return type is not ProjectDescription.Workspace")
-    }
+        struct MyWorkspaceModule: Module {
+            var body: some Module {
+                Workspace {
+                    ProjectDescription.Path.relativeToRoot("Projects/MyApp")
+                }
+                .generationOption(.options(enableAutomaticXcodeSchemes: true))
+            }
+        }
+
+        func testWorkspaceModuleGeneration() {
+            let module = MyWorkspaceModule()
+            let anyModule = module.module()
+            
+            switch anyModule.module {
+            case let .workspace(workspace):
+                XCTAssertEqual(workspace.generationOptions, .options(enableAutomaticXcodeSchemes: true))
+                XCTAssertEqual(workspace.projects.first, .relativeToRoot("Projects/MyApp"))
+            default:
+                XCTFail("Expected a Workspace module")
+            }
+        }
 }
