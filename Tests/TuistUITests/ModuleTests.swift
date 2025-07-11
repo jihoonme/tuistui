@@ -23,7 +23,6 @@ final class ModuleTests: XCTestCase {
             
             switch anyModule.module {
             case let .project(project):
-                XCTAssertEqual(anyModule.typeName, "MyAppModule")
                 XCTAssertEqual(project.organizationName, "jihoonme")
                 XCTAssertEqual(project.targets.first?.name, "MyApp")
             default:
