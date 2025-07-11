@@ -32,12 +32,9 @@ public struct Project<Content>: Module where Content: TargetConvertable {
     }
 
     public func module(_ name: String) -> AnyModule {
-        let project = projectModifier.build()
         projectModifier.name = name
-        return AnyModule(
-            name: name,
-            module: .project(project)
-        )
+        let project = projectModifier.build()
+        return AnyModule(module: .project(project))
     }
     
     public var body: Never {

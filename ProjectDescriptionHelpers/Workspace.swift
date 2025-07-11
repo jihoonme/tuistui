@@ -34,12 +34,9 @@ public struct Workspace<Content>: Module where Content: PathConvertable {
     }
     
     public func module(_ name: String) -> AnyModule {
-        let workspace = workspaceModifier.build()
         workspaceModifier.name = name
-        return AnyModule(
-            name: name,
-            module: .workspace(workspace)
-        )
+        let workspace = workspaceModifier.build()
+        return AnyModule(module: .workspace(workspace))
     }
 
     public var body: Never {
