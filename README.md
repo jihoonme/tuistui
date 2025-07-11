@@ -157,21 +157,6 @@ struct AppConfiguration: XCConfig {
 }
 ```
 
-And use .debug(into:name:) method, .release(into:name:) method.
-
-```swift
-var body: some XCConfigOf<Self> {
-    Configure ({
-        switch $0 {
-        case .A:
-            return [
-                .debug(into: $0, name: .dev)
-                .release(into: $0, name: .prod)
-            ]
-        }
-    })
-}
-```
 
 How to use within a module.
 
