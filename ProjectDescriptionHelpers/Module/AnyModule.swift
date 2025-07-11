@@ -8,13 +8,11 @@ public struct AnyModule: Sendable {
         case workspace(ProjectDescription.Workspace)
     }
     
-    public let typeName: String
     public let module: ModuleType
 
     /// Initializes a module that does nothing.
     @inlinable
-    public init(name: String, module: ModuleType) {
-        self.typeName = name
+    public init(module: ModuleType) {
         self.module = module
     }
 }
