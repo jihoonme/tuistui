@@ -10,7 +10,7 @@ TuistUI is Style Plugin for cooler use of Tuist.
 
 ## Installation
 
-In order to tell Tuist you'd like to use TuistUI plugin in your project follow the instructions that are described in [Tuist documentation.](https://docs.tuist.io/plugins/using-plugins)
+In order to tell Tuist you'd like to use TuistUI plugin in your project follow the instructions that are described in [Tuist documentation.](https://docs.tuist.dev/en/guides/features/projects/plugins#plugins)
 
 ### `4.x.x`
 
