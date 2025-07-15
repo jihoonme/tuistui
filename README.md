@@ -136,10 +136,10 @@ struct AppConfiguration: XCConfig {
     enum XCConfigTarget: String, XCConfigTargetType {
         case baseProject
 
-        var path: Path {
+        func path(for config: ConfigurationName) -> Path {
             switch self {
             case .baseProject:
-                return .relativeToRoot("XCConfig/baseProject")
+                return .relativeToRoot("XCConfig/baseProject/(config.rawValue).xcconfig")
             }
         }
     }
