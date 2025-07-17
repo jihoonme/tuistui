@@ -87,7 +87,7 @@ public extension Project {
     }
     /// project fileHeaderTemplate setting
     @inlinable
-    func fileHeaderTemplate(_ fileHeader: FileHeaderTemplate) -> Self {
+    func fileHeaderTemplate(_ fileHeader: FileHeaderTemplate?) -> Self {
         projectModifier.fileHeaderTemplate = fileHeader
         return self
     }
