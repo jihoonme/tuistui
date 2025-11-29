@@ -19,3 +19,5 @@ jobs:
     with:
       project_target: "TuistUI"
       hosting_path: "tuistui"
+      xcode_version: "26.1"
+      macos_version: "macos-26"
