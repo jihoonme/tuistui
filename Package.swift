@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.4.3"),
-        .package(url: "https://github.com/tuist/tuist", from: "4.49.1"),
+        .package(url: "https://github.com/tuist/tuist", from: "4.109.1"),
     ],
     targets: [
         .executableTarget(name: "TuistUICLI"),
