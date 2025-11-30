@@ -7,7 +7,7 @@ on:
       - case-key-paths
   pull_request:
     branches:
-      - '*'
+      - "*"
   workflow_dispatch:
 
 concurrency:
@@ -15,29 +15,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-    macos:
-        name: macos 26
-        runs-on: macos-26
-        strategy:
-          matrix:
-            xcode: ["26.1"]
-            config:
-              - debug
-              - release
-        steps:
-            - name: Select Xcode ${{ matrix.xcode }}
-              run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
-            - name: Show Xcode and Swift versions
-              run: |
-                xcodebuild -version
-                swift --version
-            - name: Checkout Package
-              uses: actions/checkout@v4
-              with:
-                fetch-depth: 0
-            - name: View Swift Version
-              run: swift --version
-            - name: Build and Test
-              run: |
-                swift build
-                swift test
+  macos:
+    name: macos 26
+    runs-on: macos-26
+    strategy:
+      matrix:
+        xcode: ["26.1"]
+        config:
+          - debug
+          - release
+    steps:
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
+      - name: Show Xcode and Swift versions
+        run: |
+          xcodebuild -version
+          swift --version
+      - name: Checkout Package
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: View Swift Version
+        run: swift --version
+      - name: Build and Test
+        run: |
+          swift build
+          swift test
